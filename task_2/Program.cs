@@ -9,12 +9,12 @@ int a = Convert.ToInt32(System.Console.ReadLine());
 int b = Convert.ToInt32(System.Console.ReadLine());
 int c = Convert.ToInt32(System.Console.ReadLine());
 int max = a;
-if (b>max)
+if (b > max)
 {
-    max=b;
+    max = b;
 }
-if (c>max)
+if (c > max)
 {
-    max=c;
+    max = c;
 }
 System.Console.WriteLine($"Максимальное число {max}");

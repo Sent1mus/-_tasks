@@ -2,9 +2,9 @@
 System.Console.WriteLine("Enter 5 digit number: ");
 string number = Console.ReadLine();
 int length = number.Length;
-if (length==5)
+if (length == 5)
 {
-    if (number[0]==number[4] && number[1]==number[3])
+    if (number[0] == number[4] && number[1] == number[3])
     {
         System.Console.WriteLine("Number is palindrom");
     }

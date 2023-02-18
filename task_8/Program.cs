@@ -1,4 +1,8 @@
-﻿Console.Clear();
+﻿// Напишите программу, которая принимает
+// на вход пятизначное число и проверяет, является ли
+// оно палиндромом.
+
+Console.Clear();
 System.Console.WriteLine("Enter 5 digit number: ");
 string number = Console.ReadLine();
 int length = number.Length;

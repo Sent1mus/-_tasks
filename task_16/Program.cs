@@ -16,7 +16,7 @@ double[] GenerateArray(int Lenght)
     double[] array = new double[Lenght];
     for (int i = 0; i < Lenght; i++)
     {
-        array[i] = Math.Round(new Random().NextDouble(), 2);
+        array[i] = Math.Round(new Random().NextDouble()*20, 2);
     }
     return array;
 }

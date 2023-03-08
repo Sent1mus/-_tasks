@@ -1,6 +1,5 @@
-﻿// Задача 52: Задайте двумерный массив из целых чисел. Найдите
-// среднее арифметическое элементов в каждом столбце.
-
+﻿// Задача 58: Задайте две матрицы. Напишите программу, которая будет
+// находить произведение двух матриц.
 
 Console.Clear();
 int GetNumber(string text)
@@ -34,24 +33,51 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void FindAverage(int[,] matrix)
+int[,] FindAverage(int[,] FirstMatrix, int[,] SecondMatrix)
 {
-    double RowAverage = 0;
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int[,] MatrixMultiply = new int[FirstMatrix.GetLength(0), SecondMatrix.GetLength(1)];
+    int Sum = 0;
+    if (FirstMatrix.GetLength(0) == SecondMatrix.GetLength(1))
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int i = 0; i < FirstMatrix.GetLength(0); i++)
         {
-            RowAverage = RowAverage + matrix[i, j];
+            for (int k = 0; k < MatrixMultiply.GetLongLength(1); k++)
+            {
+                for (int j = 0; j < FirstMatrix.GetLength(1); j++)
+                {
+                    Sum = FirstMatrix[i, j] * SecondMatrix[j, k] + Sum;
+                }
+                MatrixMultiply[i, k] = Sum;
+                Sum = 0;
+            }
         }
-        System.Console.WriteLine($"Average of row {i} = {RowAverage / matrix.GetLength(1)}");
-        RowAverage = 0;
     }
+    return MatrixMultiply;
 }
 
-int Rows = GetNumber("Enter number of matrix rows:");
-int Cols = GetNumber("Enter number of matrix colums:");
+
+int Rows1 = GetNumber("Enter number of 1st matrix rows:");
+int Cols1 = GetNumber("Enter number of 1st matrix colums:");
+int Rows2 = GetNumber("Enter number of 2nd matrix rows:");
+int Cols2 = GetNumber("Enter number of 2nd matrix colums:");
 System.Console.WriteLine();
-int[,] MainMatrix = GenerateMatrix(Rows, Cols);
-PrintMatrix(MainMatrix);
+int[,] FirstMatrix = GenerateMatrix(Rows1, Cols1);
+System.Console.WriteLine("First Matrix is:");
+PrintMatrix(FirstMatrix);
 System.Console.WriteLine();
-FindAverage(MainMatrix);
+int[,] SecondMatrix = GenerateMatrix(Rows2, Cols2);
+System.Console.WriteLine("Second Matrix is:");
+PrintMatrix(SecondMatrix);
+System.Console.WriteLine();
+int[,] MatrixMultiply = FindAverage(FirstMatrix, SecondMatrix);
+if (Rows1 == Cols2)
+{
+    PrintMatrix(MatrixMultiply);
+}
+else
+{
+    System.Console.WriteLine($"Cant myltiply");
+}
+
+
+
